@@ -30,7 +30,9 @@
 #define _DATE_TIME_H
 
 //Dependencies
-#include <time.h>
+#ifndef __KERNEL__
+   #include <time.h>
+#endif
 #include "os_port.h"
 
 //C++ guard
