@@ -30,7 +30,9 @@
 #define _DEBUG_H
 
 //Dependencies
-#include <stdio.h>
+#ifndef __KERNEL__
+   #include <stdio.h>
+#endif
 #include "os_port.h"
 
 //Trace level definitions
@@ -151,8 +153,10 @@ extern "C" {
 //Debug related functions
 void debugInit(uint32_t baudrate);
 
+#ifndef __KERNEL__
 void debugDisplayArray(FILE *stream,
    const char_t *prepend, const void *data, size_t length);
+#endif
 
 //Deprecated definitions
 #define TRACE_LEVEL_NO_TRACE TRACE_LEVEL_OFF

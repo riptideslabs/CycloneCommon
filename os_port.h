@@ -79,6 +79,9 @@
 //No RTOS?
 #if defined(USE_NO_RTOS)
    #include "os_port_none.h"
+//Linux Kernel port?
+#elif defined(USE_LINUX_KERNEL)
+   #include "os_port_linux_kernel.h"
 //ChibiOS/RT port?
 #elif defined(USE_CHIBIOS)
    #include "os_port_chibios.h"
@@ -206,7 +209,7 @@
 
 //Copy string
 #ifndef osStrcpy
-   #include <string.h>
+   #include <linux/string.h>
    #define osStrcpy(s1, s2) (void) strcpy(s1, s2)
 #endif
 
@@ -230,19 +233,19 @@
 
 //Format string
 #ifndef osSprintf
-   #include <stdio.h>
+   #include <linux/kernel.h>
    #define osSprintf(dest, ...) sprintf(dest, __VA_ARGS__)
 #endif
 
 //Format string
 #ifndef osSnprintf
-   #include <stdio.h>
+   #include <linux/kernel.h>
    #define osSnprintf(dest, size, ...) snprintf(dest, size, __VA_ARGS__)
 #endif
 
 //Format string
 #ifndef osVsnprintf
-   #include <stdio.h>
+   #include <linux/kernel.h>
    #define osVsnprintf(dest, size, format, ap) vsnprintf(dest, size, format, ap)
 #endif
 
@@ -254,43 +257,43 @@
 
 //Convert string to unsigned long integer
 #ifndef osStrtoul
-   #include <stdlib.h>
-   #define osStrtoul(s, endptr, base) strtoul(s, endptr, base)
+   #include <linux/kstrtox.h>
+   #define osStrtoul(s, endptr, base) simple_strtoul(s, endptr, base)
 #endif
 
 //Convert string to unsigned long long integer
 #ifndef osStrtoull
-   #include <stdlib.h>
-   #define osStrtoull(s, endptr, base) strtoull(s, endptr, base)
+   #include <linux/kstrtox.h>
+   #define osStrtoull(s, endptr, base) simple_strtoull(s, endptr, base)
 #endif
 
 //Convert a character to lowercase
 #ifndef osTolower
-   #include <ctype.h>
+   #include <linux/ctype.h>
    #define osTolower(c) tolower((uint8_t) (c))
 #endif
 
 //Convert a character to uppercase
 #ifndef osToupper
-   #include <ctype.h>
+   #include <linux/ctype.h>
    #define osToupper(c) toupper((uint8_t) (c))
 #endif
 
 //Check if a character is an uppercase letter
 #ifndef osIsupper
-   #include <ctype.h>
+   #include <linux/ctype.h>
    #define osIsupper(c) isupper((uint8_t) (c))
 #endif
 
 //Check if a character is a decimal digit
 #ifndef osIsdigit
-   #include <ctype.h>
+   #include <linux/ctype.h>
    #define osIsdigit(c) isdigit((uint8_t) (c))
 #endif
 
 //Check if a character is a whitespace character
 #ifndef osIsspace
-   #include <ctype.h>
+   #include <linux/ctype.h>
    #define osIsspace(c) isspace((uint8_t) (c))
 #endif
 
