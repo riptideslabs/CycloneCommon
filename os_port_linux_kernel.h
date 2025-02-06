@@ -1,5 +1,5 @@
 /**
- * @file os_port_none.h
+ * @file os_port_linux_kernel.h
  * @brief RTOS-less environment
  *
  * @section License

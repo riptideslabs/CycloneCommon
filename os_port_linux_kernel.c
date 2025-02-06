@@ -320,6 +320,7 @@ bool_t osCreateMutex(OsMutex *mutex)
 
 void osDeleteMutex(OsMutex *mutex)
 {
+   mutex_destroy(mutex);
 }
 
 
