@@ -134,73 +134,73 @@
 
 //Fill block of memory
 #ifndef osMemset
-   #include <string.h>
+   #include <linux/string.h>
    #define osMemset(p, value, length) (void) memset(p, value, length)
 #endif
 
 //Copy block of memory
 #ifndef osMemcpy
-   #include <string.h>
+   #include <linux/string.h>
    #define osMemcpy(dest, src, length) (void) memcpy(dest, src, length)
 #endif
 
 //Move block of memory
 #ifndef osMemmove
-   #include <string.h>
+   #include <linux/string.h>
    #define osMemmove(dest, src, length) (void) memmove(dest, src, length)
 #endif
 
 //Compare two blocks of memory
 #ifndef osMemcmp
-   #include <string.h>
+   #include <linux/string.h>
    #define osMemcmp(p1, p2, length) memcmp(p1, p2, length)
 #endif
 
 //Search for the first occurrence of a given character
 #ifndef osMemchr
-   #include <string.h>
+   #include <linux/string.h>
    #define osMemchr(p, c, length) memchr(p, c, length)
 #endif
 
 //Get string length
 #ifndef osStrlen
-   #include <string.h>
+   #include <linux/string.h>
    #define osStrlen(s) strlen(s)
 #endif
 
 //Compare strings
 #ifndef osStrcmp
-   #include <string.h>
+   #include <linux/string.h>
    #define osStrcmp(s1, s2) strcmp(s1, s2)
 #endif
 
 //Compare substrings
 #ifndef osStrncmp
-   #include <string.h>
+   #include <linux/string.h>
    #define osStrncmp(s1, s2, length) strncmp(s1, s2, length)
 #endif
 
 //Compare strings without case
 #ifndef osStrcasecmp
-   #include <string.h>
+   #include <linux/string.h>
    #define osStrcasecmp(s1, s2) strcasecmp(s1, s2)
 #endif
 
 //Compare substrings without case
 #ifndef osStrncasecmp
-   #include <string.h>
+   #include <linux/string.h>
    #define osStrncasecmp(s1, s2, length) strncasecmp(s1, s2, length)
 #endif
 
 //Search for the first occurrence of a given character
 #ifndef osStrchr
-   #include <string.h>
+   #include <linux/string.h>
    #define osStrchr(s, c) strchr(s, c)
 #endif
 
 //Search for the first occurrence of a substring
 #ifndef osStrstr
-   #include <string.h>
+   #include <linux/string.h>
    #define osStrstr(s1, s2) strstr(s1, s2)
 #endif
 
@@ -212,31 +212,31 @@
 
 //Copy characters from string
 #ifndef osStrncpy
-   #include <string.h>
+   #include <linux/string.h>
    #define osStrncpy(s1, s2, length) (void) strncpy(s1, s2, length)
 #endif
 
 //Concatenate strings
 #ifndef osStrcat
-   #include <string.h>
+   #include <linux/string.h>
    #define osStrcat(s1, s2) (void) strcat(s1, s2)
 #endif
 
 //Extract tokens from string
 #ifndef osStrtok_r
-   #include <string.h>
+   #include <linux/kstrtox.h>
    #define osStrtok_r(s, delim, last) strtok_r(s, delim, last)
 #endif
 
 //Format string
 #ifndef osSprintf
-   #include <linux/kernel.h>
+   #include <linux/sprintf.h>
    #define osSprintf(dest, ...) sprintf(dest, __VA_ARGS__)
 #endif
 
 //Format string
 #ifndef osSnprintf
-   #include <linux/kernel.h>
+   #include <linux/sprintf.h>
    #define osSnprintf(dest, size, ...) snprintf(dest, size, __VA_ARGS__)
 #endif
 
