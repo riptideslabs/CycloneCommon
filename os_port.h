@@ -233,13 +233,13 @@
 
 //Format string
 #ifndef osSprintf
-   #include <linux/sprintf.h>
+   #include <linux/kernel.h>
    #define osSprintf(dest, ...) sprintf(dest, __VA_ARGS__)
 #endif
 
 //Format string
 #ifndef osSnprintf
-   #include <linux/sprintf.h>
+   #include <linux/kernel.h>
    #define osSnprintf(dest, size, ...) snprintf(dest, size, __VA_ARGS__)
 #endif
 
