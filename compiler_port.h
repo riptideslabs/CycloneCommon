@@ -133,17 +133,17 @@ extern "C" {
    #define PRIXSIZE "X"
    #define PRIuTIME "lu"
 //Linux/FreeBSD GCC compiler
-#elif defined(__linux__) || defined(__FreeBSD__)
-   #define PRIuSIZE "zu"
-   #define PRIXSIZE "zX"
-   #define PRIuTIME "lu"
-//Linux kernel compiler
 #elif defined(__KERNEL__)
    typedef time64_t time_t;
 
    #define PRIu8 "u"
    #define PRIu16 "u"
    #define PRIu32 "u"
+#elif defined(__linux__) || defined(__FreeBSD__)
+   #define PRIuSIZE "zu"
+   #define PRIXSIZE "zX"
+   #define PRIuTIME "lu"
+//Linux kernel compiler
 //Win32 compiler?
 #elif defined(_WIN32)
    #define PRIuSIZE "Iu"
