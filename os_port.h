@@ -251,8 +251,8 @@
 
 //Convert string to integer
 #ifndef osAtoi
-   #include <stdlib.h>
-   #define osAtoi(s) atoi(s)
+   #include <linux/kstrtox.h>
+   #define osAtoi(s) simple_strtol(s, NULL, 10)
 #endif
 
 //Convert string to unsigned long integer
