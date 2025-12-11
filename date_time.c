@@ -193,7 +193,9 @@ __weak_func time_t getCurrentUnixTime(void)
    //Retrieve current time
    return time(NULL);
 #else
-   return ktime_get_real_seconds();
+   struct timespec64 ts;
+   ktime_get_real_ts64(&ts);
+   return ts.tv_sec;
 #endif
 }
 
