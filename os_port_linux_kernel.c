@@ -353,9 +353,10 @@ void osReleaseMutex(OsMutex *mutex)
 
 systime_t osGetSystemTime(void)
 {
-   systime_t time = ktime_get_boottime();
+   struct timespec64 time;
+   ktime_get_raw_ts64(&time);
    // convert to milliseconds
-   return ktime_to_ms(time);
+   return (time.tv_sec * 1000) + (time.tv_nsec / 1000000);
 }
 
 
