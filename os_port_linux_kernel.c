@@ -297,6 +297,7 @@ void osReleaseSemaphore(OsSemaphore *semaphore)
    *semaphore += 1;
 }
 
+#ifndef CYCLONE_DISABLE_MUTEX
 
 /**
  * @brief Create a mutex object
@@ -333,6 +334,8 @@ void osAcquireMutex(OsMutex *mutex)
 {
    mutex_lock(mutex);
 }
+
+#endif
 
 
 /**
